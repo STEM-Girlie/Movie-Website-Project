@@ -57,6 +57,8 @@
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
+  outline: none;
+  border: none;
   width: 40px;
   height: 40px;
   display: flex;
@@ -65,12 +67,17 @@
   transition: background-color 0.2s;
 }
 
+.favourite-btn:focus {
+  outline: none;
+}
+
 .favourite-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .favourite-btn.active {
   color: #ff4757;
+  outline: none;
 }
 
 .rating-select {

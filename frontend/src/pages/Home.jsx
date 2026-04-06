@@ -4,14 +4,6 @@ import { searchMovies } from "../services/api";
 import { getPopularMovies } from "../services/api";
 import "../css/Home.css";
 
-/*function Home() {
-  return (
-    <div style={{ backgroundColor: "lightblue", padding: "2rem" }}>
-      <h1>Hello from Home</h1>
-    </div>
-  );
-}*/
-
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
@@ -34,9 +26,21 @@ function Home() {
     loadPopularMovies();
   }, []);
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    alert(searchQuery);
+    if (!searchQuery.trim()) return;
+    if (loading) return;
+    setLoading(true);
+    try {
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
+    } catch (error) {
+      console.log(error);
+      setError("Failed to search movies. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
     setSearchQuery("");
   };
 
@@ -55,11 +59,17 @@ function Home() {
         </button>
       </form>
 
-      <div className="movies-grid">
-        {movies.map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
-      </div>
+      {error && <div className="error-message">{error}</div>}
+
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <div className="movies-grid">
+          {movies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -33,6 +33,33 @@
   line-height: 1.6;
 }
 
+/* Make the grid small and tidy */
+.favourites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 3rem;
+  padding: 1rem;
+}
+
+/* Force MovieCard to stay small on this page */
+.favourites-grid .movie-card {
+  width: 180px;
+  margin: 0 auto;
+}
+
+/* Override the poster size ONLY in favourites */
+.favourites-grid .movie-poster {
+  width: 180px;
+  height: 210px; /* 2:3 ratio */
+}
+
+/* Ensure the image fits the new size */
+.favourites-grid .movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Animation for new favorites being added */
 @keyframes fadeIn {
   from {
