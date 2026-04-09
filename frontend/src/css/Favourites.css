@@ -8,14 +8,15 @@
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--asparagus);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .favourites-empty {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: color-mix(in srgb, var(--mahogany) 40%, transparent);
+  /*box-shadow: 1px 1px 2px var(--tobacco);*/
   border-radius: 12px;
   margin: 2rem auto;
   max-width: 600px;
@@ -24,11 +25,11 @@
 .favourites-empty h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
-  color: #e50914;
+  color: var(--asparagus);
 }
 
 .favourites-empty p {
-  color: #999;
+  color: var(--asparagus);
   font-size: 1.2rem;
   line-height: 1.6;
 }

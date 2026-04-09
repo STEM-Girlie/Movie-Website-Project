@@ -1,5 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* --- Global theme colours --- */
+  --tobacco: #b59e7d;
+  --mahogany: #584738;
+  --mountain-grey: #aaa396;
+  --light-beige: #cec1a8;
+  --vanilla: #f1eada;
+  --asparagus: #426546;
+
+  /* --- Existing Vite defaults (keep these!) --- */
+  font-family: "Oswald", sans-serif, "Quattrocento", serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,6 +26,30 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.quattrocento-regular {
+  font-family: "Quattrocento", serif;
+  font-weight: 400;
+  /*font-style: normal;*/
+}
+
+.quattrocento-bold {
+  font-family: "Quattrocento", serif;
+  font-weight: 700;
+  /*font-style: normal;*/
+}
+
+.quattrocento-italic {
+  font-family: "Quattrocento", serif;
+  font-style: italic;
 }
 
 * {
@@ -39,12 +78,13 @@ body {
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  color: var(--asparagus);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--vanilla);
 }
 
 h1 {
@@ -64,7 +104,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--light-beige);
 }
 button:focus,
 button:focus-visible {
@@ -73,13 +113,29 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: var(--asparagus);
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--mahogany);
   }
   button {
     background-color: #f9f9f9;
   }
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--mahogany) 80%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tobacco) 60%, transparent);
+    -webkit-backdrop-filter: blur(16px); /* Safari */
+    backdrop-filter: blur(16px); /* Other browsers */
+  }
+}
+
+.glow-text {
+  text-shadow: 0 0 30px color-mix(in srgb, var(--asparagus) 50%, transparent);
+}
+.glow-border {
+  box-shadow: 0 0 30px color-mix(in srgb, var(--asparagus) 50%, transparent);
 }

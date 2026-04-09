@@ -18,19 +18,28 @@
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: #333;
+  background-color: #f1eada;
   color: white;
   font-size: 1rem;
 }
 
+.search-input::placeholder {
+  font-family: quattrocento, serif;
+  color: var(--asparagus);
+}
+
+.search-input:hover {
+  background-color: color-mix(in srgb, var(--asparagus) 40%, transparent);
+}
+
 .search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #666;
+  box-shadow: 0 0 0 2px var(--mountain-grey);
 }
 
 .search-btn {
   padding: 0.75rem 1.5rem;
-  background-color: #e50914;
+  background-color: #b59e7d;
   color: white;
   border-radius: 4px;
   font-weight: 500;
@@ -39,7 +48,8 @@
 }
 
 .search-btn:hover {
-  background-color: #f40612;
+  background-color: color-mix(in srgb, var(--mahogany) 40%, transparent);
+  color: var(--vanilla);
 }
 
 @media (max-width: 639px) {
@@ -60,3 +70,12 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* colour theme for website 
+#b59e7d - tobacco brown
+#584738 - mahogany dark brown
+#aaa396 - mountain light grey
+#cec1a8 - light beige
+#f1eada - vanilla off-white
+font family: Oswald, sans serif, Instrument Serif, serif)
+*/
