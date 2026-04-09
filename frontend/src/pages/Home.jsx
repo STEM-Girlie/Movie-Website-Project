@@ -1,7 +1,6 @@
 import MovieCard from "../components/MovieCard";
-import { useState, useEffect } from "react";
-import { searchMovies } from "../services/api";
-import { getPopularMovies } from "../services/api";
+import { useState, useEffect, useRef } from "react";
+import { searchMovies, getPopularMovies } from "../services/api";
 import "../css/Home.css";
 
 function Home() {
@@ -10,13 +9,20 @@ function Home() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // ⭐ NEW: Track which page of TMDB we’re on
+  const [page, setPage] = useState(1);
+
+  const loadMoreRef = useRef(null);
+
+  // -------------------------------
+  // 1️⃣ Load first page of movies
+  // -------------------------------
   useEffect(() => {
     const loadPopularMovies = async () => {
       try {
-        const popularMovies = await getPopularMovies();
+        const popularMovies = await getPopularMovies(1); // page 1
         setMovies(popularMovies);
       } catch (error) {
-        console.log("Error fetching popular movies:", error);
         setError("Failed to load popular movies. Please try again later.");
       } finally {
         setLoading(false);
@@ -26,24 +32,69 @@ function Home() {
     loadPopularMovies();
   }, []);
 
+  // -------------------------------
+  // 2️⃣ Handle search
+  // -------------------------------
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
-    if (loading) return;
+
     setLoading(true);
     try {
-      const searchResults = await searchMovies(searchQuery);
+      const searchResults = await searchMovies(searchQuery, 1);
       setMovies(searchResults);
       setError(null);
+      setPage(1); // reset page
     } catch (error) {
-      console.log(error);
       setError("Failed to search movies. Please try again later.");
     } finally {
       setLoading(false);
     }
+
     setSearchQuery("");
   };
 
+  // -------------------------------
+  // 3️⃣ Infinite scroll observer
+  // -------------------------------
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPage((prev) => prev + 1); // ⭐ load next page
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, []);
+
+  // -------------------------------
+  // 4️⃣ Fetch more movies when page changes
+  // -------------------------------
+  useEffect(() => {
+    if (page === 1) return; // skip first load
+
+    const loadMore = async () => {
+      try {
+        const moreMovies = await getPopularMovies(page);
+        setMovies((prev) => [...prev, ...moreMovies]); // ⭐ append
+      } catch (error) {
+        console.log("Error loading more movies:", error);
+      }
+    };
+
+    loadMore();
+  }, [page]);
+
+  // -------------------------------
+  // 5️⃣ Render
+  // -------------------------------
   return (
     <div className="home">
       <form onSubmit={handleSearch} className="search-form">
@@ -64,13 +115,19 @@ function Home() {
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
-        <div className="movies-grid">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div>
+        <>
+          <div className="movies-grid">
+            {movies.map((movie) => (
+              <MovieCard movie={movie} key={movie.id} />
+            ))}
+          </div>
+
+          {/* ⭐ This tiny div triggers loading more */}
+          <div ref={loadMoreRef} style={{ height: "1px" }}></div>
+        </>
       )}
     </div>
   );
 }
+
 export default Home;
