@@ -3,9 +3,9 @@
 A responsive movie discovery web application that allows users to browse trending films, search for titles, view details, and build a personal watchlist.  
 The app is designed for movie lovers who want a clean, fast, and modern interface for exploring films using real‑time data from The Movie Database (TMDB) API.
 
-Live Demo: [https://your-live-link.com](https://your-live-link.com)  
-Frontend Repo: [https://github.com/username/frontend-repo](https://github.com/username/frontend-repo)  
-Backend Repo: [https://github.com/username/backend-repo](https://github.com/username/backend-repo)  
+Live Demo: (https://stem-girlie.github.io/Movie-Library/)  
+Frontend Repo: [https://github.com/STEM-Girlie/frontend-repo](https://github.com/STEM-Girlie/frontend-repo)  
+ 
 
 ---
 
