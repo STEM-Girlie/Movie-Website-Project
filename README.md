@@ -193,8 +193,11 @@ assets/
 Add inside README:
 
 ```markdown
-![Home Page](assets/home.png)
-![Watchlist](assets/watchlist.png)
+![Home](assets/Home.png)
+![Home](assets/Home2.png)
+![Menu](assets/Menu.png)
+![Favourites](assets/Favourites.png)
+![Favourites](assets/FavouritesEmpty.png)
 ```
 
 ---
