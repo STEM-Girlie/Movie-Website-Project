@@ -61,20 +61,27 @@ function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setPage((prev) => prev + 1); // ⭐ load next page
+        // ⭐ Prevent triggering while loading
+        if (!loading && entries[0].isIntersecting) {
+          setPage((prev) => prev + 1);
         }
       },
-
-      { rootMargin: "200px", threshold: 0.1 },
+      {
+        rootMargin: "200px",
+        threshold: 0.1,
+      },
     );
 
-    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
 
     return () => {
-      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
     };
-  }, []);
+  }, [loading, movies]);
 
   // -------------------------------
   // 4️⃣ Fetch more movies when page changes
