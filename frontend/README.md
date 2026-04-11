@@ -3,7 +3,7 @@
 A responsive movie discovery web application that allows users to browse trending films, search for titles, view details, and build a personal watchlist.  
 The app is designed for movie lovers who want a clean, fast, and modern interface for exploring films using real‑time data from The Movie Database (TMDB) API.
 
-Live Demo: Live Demo: https://movie-library-n2rk.vercel.app/ 
+Live Demo: https://movie-library-n2rk.vercel.app/ 
 
 ---
 
@@ -97,25 +97,6 @@ client/
 
 ---
 
-## Database Design  
-*(Skip if no backend — or keep this placeholder)*
-
-```
-users
- ├── id
- ├── email
- ├── password
- └── created_at
-
-watchlist
- ├── id
- ├── user_id
- ├── movie_id
- └── added_at
-```
-
----
-
 ## API Endpoints  
 *(For TMDB integration)*
 
@@ -185,19 +166,22 @@ VITE_TMDB_API_KEY=your_api_key_here
 
 ```
 assets/
- ├── home.png
- ├── movie-card.png
- └── watchlist.png
+ ├── Home.png
+ ├── Home2.png
+ ├── Menu.png
+ ├── Favourites.png
+ └── FavouritesEmpty.png
 ```
 
-Add inside README:
 
-```markdown
-![Home Page](assets/home.png)
-![Watchlist](assets/watchlist.png)
-```
+![Home](frontend/assets/Home.png)
+![Home](frontend/assets/Home2.png)
+![Menu](frontend/assets/Menu.png)
+![Favourites](frontend/assets/Favourites.png)
+![Favourites](frontend/assets/FavouritesEmpty.png)
 
----
+
+
 
 ## Deployment
 
