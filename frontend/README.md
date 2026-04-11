@@ -174,11 +174,11 @@ assets/
 ```
 
 
-![Home](frontend/assets/Home.png)
-![Home](frontend/assets/Home2.png)
-![Menu](frontend/assets/Menu.png)
-![Favourites](frontend/assets/Favourites.png)
-![Favourites](frontend/assets/FavouritesEmpty.png)
+![Home](assets/Home.png)
+![Home](assets/Home2.png)
+![Menu](assets/Menu.png)
+![Favourites](assets/Favourites.png)
+![Favourites](assets/FavouritesEmpty.png)
 
 
 
