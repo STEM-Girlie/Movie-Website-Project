@@ -97,25 +97,6 @@ client/
 
 ---
 
-## Database Design  
-*(Skip if no backend — or keep this placeholder)*
-
-```
-users
- ├── id
- ├── email
- ├── password
- └── created_at
-
-watchlist
- ├── id
- ├── user_id
- ├── movie_id
- └── added_at
-```
-
----
-
 ## API Endpoints  
 *(For TMDB integration)*
 
@@ -193,11 +174,11 @@ assets/
 ```
 
 
-![Home](assets/Home.png)
-![Home](assets/Home2.png)
-![Menu](assets/Menu.png)
-![Favourites](assets/Favourites.png)
-![Favourites](assets/FavouritesEmpty.png)
+![Home](frontend/assets/Home.png)
+![Home](frontend/assets/Home2.png)
+![Menu](frontend/assets/Menu.png)
+![Favourites](frontend/assets/Favourites.png)
+![Favourites](frontend/assets/FavouritesEmpty.png)
 
 
 
