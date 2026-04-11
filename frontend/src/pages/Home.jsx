@@ -65,7 +65,8 @@ function Home() {
           setPage((prev) => prev + 1); // ⭐ load next page
         }
       },
-      { threshold: 0.1 },
+
+      { rootMargin: "200px", threshold: 0.1 },
     );
 
     if (loadMoreRef.current) observer.observe(loadMoreRef.current);
