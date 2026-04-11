@@ -185,12 +185,12 @@ VITE_TMDB_API_KEY=your_api_key_here
 
 ```
 assets/
- ├── home.png
- ├── movie-card.png
- └── watchlist.png
-```
-
-Add inside README:
+ ├── Home.png
+ ├── Home2.png
+ ├── Menu.png
+ ├── Favourites.png
+ └── FavouritesEmpty.png
+``
 
 ```markdown
 ![Home](assets/Home.png)
