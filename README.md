@@ -3,9 +3,7 @@
 A responsive movie discovery web application that allows users to browse trending films, search for titles, view details, and build a personal watchlist.  
 The app is designed for movie lovers who want a clean, fast, and modern interface for exploring films using real‑time data from The Movie Database (TMDB) API.
 
-Live Demo: 
-Frontend Repo:  
- 
+Live Demo: https://movie-library-n2rk.vercel.app/ 
 
 ---
 
