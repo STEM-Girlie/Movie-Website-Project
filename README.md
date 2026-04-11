@@ -4,7 +4,8 @@ A responsive movie discovery web application that allows users to browse trendin
 The app is designed for movie lovers who want a clean, fast, and modern interface for exploring films using real‑time data from The Movie Database (TMDB) API.
 
 Live Demo: 
-Frontend Repo: 
+Frontend Repo:  
+ 
 
 ---
 
