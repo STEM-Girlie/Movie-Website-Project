@@ -125,7 +125,7 @@ function Home() {
           </div>
 
           {/* ⭐ This tiny div triggers loading more */}
-          <div ref={loadMoreRef} style={{ height: "1px" }}></div>
+          <div ref={loadMoreRef} style={{ height: "60px" }}></div>
         </>
       )}
     </div>
