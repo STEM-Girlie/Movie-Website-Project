@@ -192,13 +192,13 @@ assets/
  └── FavouritesEmpty.png
 ``
 
-```markdown
+
 ![Home](assets/Home.png)
 ![Home](assets/Home2.png)
 ![Menu](assets/Menu.png)
 ![Favourites](assets/Favourites.png)
 ![Favourites](assets/FavouritesEmpty.png)
-```
+
 
 ---
 
