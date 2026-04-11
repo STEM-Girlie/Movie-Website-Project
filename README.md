@@ -190,7 +190,7 @@ assets/
  ├── Menu.png
  ├── Favourites.png
  └── FavouritesEmpty.png
-``
+```
 
 
 ![Home](assets/Home.png)
@@ -200,7 +200,7 @@ assets/
 ![Favourites](assets/FavouritesEmpty.png)
 
 
----
+
 
 ## Deployment
 
